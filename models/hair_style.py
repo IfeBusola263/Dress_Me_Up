@@ -13,7 +13,7 @@ class HairStyle(ParentModel):
     length = 0
     image = ""
 
-    def __init__(self, *arg, **kwargs):
+    def __init__(self, *args, **kwargs):
         """This method initializes the fields and attribute of the
         hairstyle class and inherits the fields and methods from the
         parent class ParentModel.

@@ -12,3 +12,9 @@ class MakeupStyle(ParentModel):
     description = ""
     makeup_type = ""
     image = ""
+    
+    def __init__(self, *args, **kwargs):
+        """initializes MakeupStyle"""
+        super().__init__(*args, **kwargs)
+
+    

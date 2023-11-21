@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+"""
+This is the model that holds the user class
+"""
+from models.parent_model import ParentModel
+
+
+class User(BaseModel):
+    """THis is the instance representation for the user object"""
+    name = ""
+    email = ""
+    profile_picture = ""
+    preference = ""
+    measurement = ""
+    outfits = ""
+    country = ""
+    state = ""
+    password = ""

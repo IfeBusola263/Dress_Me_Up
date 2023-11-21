@@ -11,7 +11,7 @@ class ParentModel():
 
     __models = {}
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """At the creation of the instance of this class, this function
         runs first, and it's useful for setting up the attributes and
         fields of the class.

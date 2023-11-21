@@ -16,6 +16,7 @@ class ParentModel():
         runs first, and it's useful for setting up the attributes and
         fields of the class.
         """
+        from models import storage
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = self.created_at
@@ -38,12 +39,13 @@ class ParentModel():
         attr['created_at'] = self.created_at.isoformat()
         attr['updated_at'] = self.updated_at.isoformat()
         attr['__class__'] = self.__class__.__name__
-        attr['id'] = self.id
+        # attr['id'] = self.id
         return attr
 
     def save(self):
         """This method, save the instance of the model in a dedicated
         storage. Either a database of a file storage.
         """
+        from models import storage
         self.updated_at = datetime.now()
         storage.save()

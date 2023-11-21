@@ -4,23 +4,42 @@
 
 from uuid import uuid4
 from datetime import datetime
+from sqlalchemy.ext.declarative import declarative_base
+import models
+from sqlalchemy import String, Column, DateTime
+
+# The declarative base is a straight forward way to create the tables
+# from the schemas created in a python class through ORM.
+Base = declarative_base()
+
 
 class ParentModel():
     """This is the parent model for other models
     """
 
     __models = {}
+    id = Column(String(60), primary_key=True)
+    created_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
 
     def __init__(self, *args, **kwargs):
         """At the creation of the instance of this class, this function
         runs first, and it's useful for setting up the attributes and
         fields of the class.
         """
-        from models import storage
+
+        if kwargs:
+            if kwargs.get('__class__'):
+                del kwargs['__class__']
+            for key, value in kwargs.items():
+                if key in ['created_at', 'updated_at']:
+                    kwargs[key] = datetime.strptime(kwargs[key],
+                                                    '%Y-%m-%dT%H:%M:%S.%f')
+                setattr(self, key, value)
+
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = self.created_at
-        storage.new(self)
 
     def __str__(self):
         """This method returns a string representation of the model.
@@ -46,6 +65,12 @@ class ParentModel():
         """This method, save the instance of the model in a dedicated
         storage. Either a database of a file storage.
         """
-        from models import storage
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.new(self)
+        models.storage.save()
+
+    def delete(self):
+        """This method deletes the instance of this class.
+        """
+        models.storage.delete(self)
+        models.storage.save()

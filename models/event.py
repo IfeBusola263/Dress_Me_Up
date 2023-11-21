@@ -12,9 +12,9 @@ class Event(ParentModel):
     event_id = ""
     name = ""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Instantiate object with given attributes"""
-        super().__init__()
+        super().__init__(*args, **kwargs)
 
     def __str__(self):
         """Returns the string representation of class instance"""

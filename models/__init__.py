@@ -3,8 +3,16 @@
    answerable to all classes
 """
 
-from models.file_storage import FileStorage
+from os import getenv
 
+storage_type = getenv("DRESS_ME_DEV_STORAGE")
 
-storage = FileStorage()
+if storage_type == 'db':
+    from models.db_storage import DBStorage
+    storage = DBStorage()
+
+else:
+    from models.file_storage import FileStorage
+    storage = FileStorage()
+
 storage.reload()

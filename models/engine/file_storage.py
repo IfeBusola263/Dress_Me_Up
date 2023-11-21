@@ -62,3 +62,10 @@ class FileStorage():
         if os.path.exists(file):
             with open(file, 'r') as f:
                 json.load(f)
+
+    def delete(self, obj=None):
+        """Erase an object from file storage"""
+        if obj is None:
+            key = f'{obj.__class__.name__}.{obj.id}'
+            del self.__obj_dict[key]
+            storage.save()

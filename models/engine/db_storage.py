@@ -18,10 +18,10 @@ class DBStorage:
 
     def __init__(self):
         """Instantiate object with state attributes"""
-        password = getenv("DRESS_ME_PWD")
-        localhost = getenv("DRESS_ME_HOST")
-        db_name = getenv("DRESS_ME_DEV_DB")
-        db_user = getenv("DRESS_ME_DEV")
+        password = getenv("DRESS_ME_MYSQL_PWD")
+        localhost = getenv("DRESS_ME_MYSQL_HOST")
+        db_name = getenv("DRESS_ME_MYSQL_DB")
+        db_user = getenv("DRESS_ME_MYSQL_USER")
 
         self.__engine = create_engine(
                 'mysql+mysqld://{}:{}@{}/{}'.format(

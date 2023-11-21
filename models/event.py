@@ -2,15 +2,21 @@
 """Creates a model for various kinds
    of events
 """
+import models
+from models.parent_model import ParentModel, Base
+from sqlalchemy import Column, String
 
-from models.parent_model import ParentModel
 
-
-
-class Event(ParentModel):
+class Event(ParentModel, Base):
     """Creates an Event class"""
-    event_id = ""
-    name = ""
+    if models.storage_type == "db":
+        __tablename__ = 'events'
+        event_id = Column(String(60), nullable=False)
+        name = Column(String(128), nullable=False)
+
+    else:
+        event_id = ""
+        name = ""
 
     def __init__(self, *args, **kwargs):
         """Instantiate object with given attributes"""

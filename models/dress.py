@@ -3,14 +3,30 @@
 Listing the different options like trousers, shirts, Tees, gowns,
 and others.
 """
+mport models
+from models.parent_model import ParentModel, Base
+from sqlalchemy import Column, String, ForeignKey
 
-from models.parent_model import ParentModel
 
-class Dress(ParentModel):
+class Dress(ParentModel, Base):
     """This class inherits from the parent model to share methods
     and attributes.
     """
-    name = ""
+    if models.storage_type == "db":
+        __tablename__ = 'dresses'
+        name = Column(String(128), nullable=False)
+        description = Column(String(128), nullable=False)
+        brand = Column(String(128), nullable=False)
+        category = Column(String(128), nullable=False)
+        image = Column(String(128), nullable=False)
+        event_id = Column(String(60), ForeignKey('event.id'), nullable=False)
+    else:
+        name = ""
+        description = ""
+        brand = ""
+        category = ""
+        image = ""
+
 
     def __init__(self):
         """This method initializes all the attributes and fields

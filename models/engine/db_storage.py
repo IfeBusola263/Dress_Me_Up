@@ -3,9 +3,15 @@
    creation to mysql database
 """
 import models
+from models.parent_model import Base
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
 from os import getenv
+from models.user import User
+from models.event import Event
+from models.hair_style import HairStyle
+from models.dress import Dress
+from models.makeup_style import MakeupStyle
 
 
 class DBStorage:
@@ -48,6 +54,7 @@ class DBStorage:
 
     def reload(self):
         """Starts a session for the sqlalchemy"""
+        Base.metadata.create_all(self.__engine)
         session_factory = sessionmaker(bind=self.__engine,
                                        expire_on_commit=False)
         self.__session = scoped_session(session_factory)

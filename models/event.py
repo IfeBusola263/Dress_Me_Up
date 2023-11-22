@@ -12,7 +12,7 @@ class Event(ParentModel, Base):
     __tablename__ = 'events'
     
     if models.storage_type == "db":
-        event_id = Column(String(60), nullable=False)
+        event_id = Column(String(60), primary_key=True, nullable=False)
         name = Column(String(128), nullable=False)
 
     else:

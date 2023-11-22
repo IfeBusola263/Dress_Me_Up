@@ -4,8 +4,10 @@ Listing the different options like trousers, shirts, Tees, gowns,
 and others.
 """
 import models
+from models.event import Event
 from models.parent_model import ParentModel, Base
 from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy.orm import relationship
 
 
 class Dress(ParentModel, Base):
@@ -19,7 +21,9 @@ class Dress(ParentModel, Base):
         brand = Column(String(128), nullable=False)
         category = Column(String(128), nullable=False)
         image = Column(String(128), nullable=False)
-        event_id = Column(String(60), ForeignKey('event.id'), nullable=False)
+        event_id = Column(String(60), ForeignKey('events.id'), nullable=False)
+
+        # event = relationship('Event', backref='dresses')
     else:
         name = ""
         description = ""

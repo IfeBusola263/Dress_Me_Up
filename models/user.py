@@ -4,7 +4,7 @@ This is the model that holds the user class
 """
 from models.parent_model import ParentModel, Base
 from sqlalchemy import Column, String
-
+from models import storage_type
 
 class User(ParentModel, Base):
     """This is the instance representation for the user object"""

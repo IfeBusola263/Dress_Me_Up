@@ -3,7 +3,7 @@
 Listing the different options like trousers, shirts, Tees, gowns,
 and others.
 """
-mport models
+import models
 from models.parent_model import ParentModel, Base
 from sqlalchemy import Column, String, ForeignKey
 

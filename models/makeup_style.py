@@ -5,6 +5,7 @@ This is the model that holds the makeup style class
 
 from models.parent_model import ParentModel, Base
 from sqlalchemy import Column, String
+from models import storage_type
 
 
 class MakeupStyle(ParentModel, Base):

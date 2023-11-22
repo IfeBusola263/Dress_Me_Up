@@ -13,7 +13,7 @@ class HairStyle(ParentModel):
         __tablename__ = 'hair_style'
         name = Column(String(128), nullable=False)
         description = Column(String(128), nullable=False)
-        lenght = Column(Integer(60), nullable=False)
+        lenght = Column(Integer, nullable=False)
         image = Column(String(128), nullable=False)
     else:
         name = ""

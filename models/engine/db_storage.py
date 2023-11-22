@@ -28,7 +28,7 @@ class DBStorage:
         db_user = getenv("DRESS_ME_MYSQL_USER")
 
         self.__engine = create_engine(
-                'mysql+mysqld://{}:{}@{}/{}'.format(
+                'mysql+mysqldb://{}:{}@{}/{}'.format(
                     db_user, password, localhost, db_name),
                 pool_pre_ping=True)
 

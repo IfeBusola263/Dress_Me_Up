@@ -9,8 +9,9 @@ from sqlalchemy import Column, String
 
 class Event(ParentModel, Base):
     """Creates an Event class"""
+    __tablename__ = 'events'
+    
     if models.storage_type == "db":
-        __tablename__ = 'events'
         event_id = Column(String(60), nullable=False)
         name = Column(String(128), nullable=False)
 

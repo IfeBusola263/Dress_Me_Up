@@ -8,11 +8,11 @@ from os import getenv
 storage_type = getenv("DRESS_ME_DEV_STORAGE")
 
 if storage_type == 'db':
-    from models.db_storage import DBStorage
+    from models.engine.db_storage import DBStorage
     storage = DBStorage()
 
 else:
-    from models.file_storage import FileStorage
+    from models.engine.file_storage import FileStorage
     storage = FileStorage()
 
 storage.reload()

@@ -4,7 +4,7 @@
 """
 import models
 from models.parent_model import ParentModel, Base
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, ForeignKey
 
 
 class Event(ParentModel, Base):
@@ -12,8 +12,9 @@ class Event(ParentModel, Base):
     __tablename__ = 'events'
     
     if models.storage_type == "db":
-        event_id = Column(String(60), primary_key=True, nullable=False)
+        #event_id = Column(String(60), primary_key=True, nullable=False)
         name = Column(String(128), nullable=False)
+        dress_id = Column(String(60), ForeignKey('dresses.id'), nullable=False)
 
     else:
         event_id = ""

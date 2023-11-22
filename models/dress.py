@@ -14,16 +14,17 @@ class Dress(ParentModel, Base):
     """This class inherits from the parent model to share methods
     and attributes.
     """
+    __tablename__ = 'dresses'
+    
     if models.storage_type == "db":
-        __tablename__ = 'dresses'
         name = Column(String(128), nullable=False)
         description = Column(String(128), nullable=False)
         brand = Column(String(128), nullable=False)
         category = Column(String(128), nullable=False)
         image = Column(String(128), nullable=False)
-        event_id = Column(String(60), ForeignKey('events.id'), nullable=False)
+        #event_id = Column(String(60), ForeignKey('events.id'), nullable=False)
 
-        # event = relationship('Event', backref='dresses')
+        event = relationship('Event', backref='dresses')
     else:
         name = ""
         description = ""
@@ -32,9 +33,9 @@ class Dress(ParentModel, Base):
         image = ""
 
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """This method initializes all the attributes and fields
         implemented on the class.
         """
 
-        super().__init__()
+        super().__init__(*args, **kwargs)

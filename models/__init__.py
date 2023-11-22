@@ -5,7 +5,7 @@
 
 from os import getenv
 
-storage_type = getenv("DRESS_ME_DEV_STORAGE")
+storage_type = getenv("DRESS_ME_TYPE_STORAGE")
 
 if storage_type == 'db':
     from models.engine.db_storage import DBStorage

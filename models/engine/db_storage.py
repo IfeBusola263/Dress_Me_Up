@@ -2,8 +2,7 @@
 """Creates a model for storing object
    creation to mysql database
 """
-
-from models import storage, classes
+import models
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
 from os import getenv
@@ -45,7 +44,7 @@ class DBStorage:
                 key = f"{class_name}.{obj.id}"
                 db_object[key] = obj
         else:
-            for key, value in classes.items():
+            for key, value in models.classes.items():
                 objs = self.__session.query(value).all()
                 for obj in objs:
                     obj_key = f"{key}.{obj.id}"

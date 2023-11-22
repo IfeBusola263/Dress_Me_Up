@@ -2,6 +2,8 @@
 """ console """
 
 import cmd
+import sys
+import re
 from datetime import datetime
 from models.event import Event
 from models.parent_model import ParentModel

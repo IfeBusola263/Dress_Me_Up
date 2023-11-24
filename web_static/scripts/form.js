@@ -14,16 +14,12 @@ function closeForm() {
     document.getElementById("overlay").style.display = "none";
 }
 
-document.getElementById("overlay").addEventListener("click", function (event) {
-    var loginForm = document.getElementById("loginForm");
-    var signupForm = document.getElementById("signupForm");
+function showLoginForm() {
+    document.getElementById("signupForm").style.display = "none";
+    document.getElementById("loginForm").style.display = "block";
+}
 
-    if (event.target === this || (event.target.classList.contains('overlay') && !isDescendant(loginForm, event.target) && !isDescendant(signupForm, event.target))) {
-        closeForm();
-    }
-});
 
-// Add a function to check if an element is a child of another element
 function isDescendant(parent, child) {
     var node = child.parentNode;
     while (node != null) {
@@ -34,6 +30,16 @@ function isDescendant(parent, child) {
     }
     return false;
 }
+
+document.addEventListener("click", function (event) {
+    var overlay = document.getElementById("overlay");
+    var loginForm = document.getElementById("loginForm");
+    var signupForm = document.getElementById("signupForm");
+
+    if (event.target === overlay && !isDescendant(loginForm, event.target) && !isDescendant(signupForm, event.target)) {
+        closeForm();
+    }
+});
 
 document.getElementById("signupFormLink").addEventListener("click", function (event) {
     event.preventDefault();

@@ -29,8 +29,17 @@ class ParentModel():
         """
 
         if kwargs:
+            if not kwargs.get('__class__') and kwargs.get('id'):
+                del kwargs['id']
+
+            if not kwargs.get('__class__') and kwargs.get(
+                    'created_at') and kwargs.get('updated_at'):
+                del kwargs['created_at']
+                del kwargs['updated_at']
+
             if kwargs.get('__class__'):
                 del kwargs['__class__']
+
             for key, value in kwargs.items():
                 if key in ['created_at', 'updated_at']:
                     kwargs[key] = datetime.strptime(kwargs[key],

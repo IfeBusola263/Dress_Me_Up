@@ -24,6 +24,6 @@ class Event(ParentModel, Base):
         """Instantiate object with given attributes"""
         super().__init__(*args, **kwargs)
 
-    def __str__(self):
-        """Returns the string representation of class instance"""
-        return f"[{self.__class__.__name__}] {self.__dict__}"
+    # def __str__(self):
+    #     """Returns the string representation of class instance"""
+    #     return f"[{self.__class__.__name__}] {self.__dict__}"

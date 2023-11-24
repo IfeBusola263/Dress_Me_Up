@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="/scripts/form.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Dress</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="openSignupForm()">Sign Up</a></li>
+                <li><a href="#" onclick="openLoginForm()">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-search-bar">
+            <input type="text" class="search-bar" placeholder="What's on your mind?">
+            <button class="search-button">Search</button>
+        </div>
+        <div class="hero-content">
+            <h2>Find Your Style</h2>
+            <p>You need a head start to get the best style for all events.</p>
+            <div class="hero-buttons">
+                <button onclick="openSignupForm()">Sign Up</button>
+                <button onclick="openLoginForm()">Login</button>
+            </div>
+        </div>
+    </section>
+    <div class="overlay" id="overlay">
+        <!-- Inside login form -->
+        <div class="login-form" id="loginForm">
+            <div class="close-container">
+                <button class="close-btn" onclick="closeForm()">X</button>
+            </div>
+            <h2>Login</h2>
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p><a href="#">Forgot Password?</a></p>
+        </div>
+
+        <!-- Inside signup form -->
+        <div class="signup-form" id="signupForm">
+            <div class="close-container">
+                <button class="close-btn" onclick="closeForm()">X</button>
+            </div>
+            <h2>Sign Up</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Dress. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -10,14 +10,14 @@ from sqlalchemy import Column, String, ForeignKey
 class Event(ParentModel, Base):
     """Creates an Event class"""
     __tablename__ = 'events'
-    
+
     if models.storage_type == "db":
         #event_id = Column(String(60), primary_key=True, nullable=False)
         name = Column(String(128), nullable=False)
         dress_id = Column(String(60), ForeignKey('dresses.id'), nullable=False)
 
     else:
-        event_id = ""
+        dress_id = ""
         name = ""
 
     def __init__(self, *args, **kwargs):

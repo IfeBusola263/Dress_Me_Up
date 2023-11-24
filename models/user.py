@@ -8,8 +8,9 @@ from models import storage_type
 
 class User(ParentModel, Base):
     """This is the instance representation for the user object"""
+
+    __tablename__ = 'users'
     if storage_type == 'db':
-        __tablename__ = 'users'
 
         name = Column(String(60), nullable=False)
         email = Column(String(120), nullable=False)

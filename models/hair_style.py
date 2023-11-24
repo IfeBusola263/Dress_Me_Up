@@ -6,11 +6,13 @@ from models.parent_model import ParentModel, Base
 from sqlalchemy import String, Column, Integer
 
 
-class HairStyle(ParentModel):
+class HairStyle(ParentModel, Base):
     """This class models the hair style for the app.
     """
+
+    __tablename__ = 'hair_style'
+
     if models.storage_type == "db":
-        __tablename__ = 'hair_style'
         name = Column(String(128), nullable=False)
         description = Column(String(128), nullable=False)
         lenght = Column(Integer, nullable=False)

@@ -15,16 +15,15 @@ class Dress(ParentModel, Base):
     and attributes.
     """
     __tablename__ = 'dresses'
-    
+
     if models.storage_type == "db":
         name = Column(String(128), nullable=False)
         description = Column(String(128), nullable=False)
         brand = Column(String(128), nullable=False)
         category = Column(String(128), nullable=False)
         image = Column(String(128), nullable=False)
-        #event_id = Column(String(60), ForeignKey('events.id'), nullable=False)
-
-        event = relationship('Event', backref='dresses')
+        # event_id = Column(String(60), ForeignKey('events.id'), nullable=False)
+        event = relationship('Event', backref='dresses', cascade='all')
     else:
         name = ""
         description = ""

@@ -5,6 +5,7 @@ This is the model that holds the user class
 from models.parent_model import ParentModel, Base
 from sqlalchemy import Column, String
 from models import storage_type
+import hashlib
 
 class User(ParentModel, Base):
     """This is the instance representation for the user object"""
@@ -36,3 +37,12 @@ class User(ParentModel, Base):
     def __init__(self, *args, **kwargs):
         """initializes User"""
         super().__init__(*args, **kwargs)
+        if 'password' in kwargs:
+            self.password = self._hash_password(self.password)
+
+    def _hash_password(self, password):
+        """Functionality to hash password"""
+        md5 = hashlib.md5()
+        md5.update(password.encode('utf-8'))
+        return md5.hexdigest()
+

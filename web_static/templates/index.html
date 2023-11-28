@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/catalog.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="/scripts/form.js"></script>
+    <script src="/scripts/catalog.js"></script>
 </head>
 
 <body>
@@ -29,6 +34,20 @@
             <div class="hero-buttons">
                 <button onclick="openSignupForm()">Sign Up</button>
                 <button onclick="openLoginForm()">Login</button>
+            </div>
+        </div>
+        <div class="catalog">
+            <label class="cat-label" for="events">Choose an Event</label>
+            <select name="events" id="events">
+                <option value="">-- Select --</option>
+                <option value="wedding">Wedding</option>
+                <option value="date">Date</option>
+                <option value="reunion">Family Reunion</option>
+                <option value="dinner">Dinner</option>
+                <option value="birthday">Birthday</option>
+            </select>
+            <div id="dressCatalogue">
+                <p id="noDressesMessage" class="no-dresses-message">No dresses available for this event.</p>
             </div>
         </div>
     </section>
@@ -74,7 +93,10 @@
             </form>
             <p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
         </div>
+        
     </div>
+    
+    
 
     <footer>
         <p>&copy; 2023 Dress. All rights reserved.</p>

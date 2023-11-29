@@ -146,7 +146,7 @@ li a {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url('/static/images/hero-image.jpg');
+    background-image: url('../images/hero-image.jpg');
     height: auto;
     position: relative;
 }
@@ -189,6 +189,7 @@ li a {
     border-radius: 10px;
     color: #fff;
 }
+
 
 .hero h2 {
     font-size: 36px;

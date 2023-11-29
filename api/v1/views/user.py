@@ -25,7 +25,7 @@ def sign_up():
     new_user.save()
 
     return jsonify("Peng! You have successfully registered"), 201
-
+  
 
 @app_views.route('/users/login',
                  methods=["POST"],

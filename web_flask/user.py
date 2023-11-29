@@ -4,6 +4,7 @@
 from models.user import User
 from flask import Flask, jsonify, request, render_template
 from models import storage
+import hashlib
 
 app = Flask(__name__)
 
@@ -25,28 +26,43 @@ def sign_up():
 
     return jsonify("Peng! You have successfully registered"), 201
 
-@app.route('/users/login', methods=["GET", "POST"], strict_slashes=False)
-def log_in():
-    """Defines user login utility"""
-    if request.method == "GET":
-        return render_template("index.html")
 
+@app.route('/users/login',
+                 methods=["GET", "POST"],
+                 strict_slashes=False)
+def log_in(username=None, email=None, password=None):
+    """Defines user login utility"""
+    # Serves the login form
+    if request.method == 'GET':
+        return render_template('index.html')
+
+    # Get the username and hash the password
     username = request.form.get("name")
-    password = request.form.get("password")
+    passwd  = request.form.get("password")
+    passwd = hashlib.md5(passwd.encode('utf-8')).hexdigest()
 
     if not username:
         return jsonify("Username cannot be empty"), 400
 
-    if not password:
+    if not passwd:
         return jsonify("Password is required"), 400
 
     for value in storage.all(User).values():
-        val_name = value.make_json().get("name")
-        val_pwd = value.make_json().get("password")
 
-        if username == val_name and password == val_pwd:
-            return render_template("login.html")
+        # Confirm user name
+        if username == value.make_json().get("name"):
 
+            # Verify Password
+            # passwd = hashlib.md5(detail['password'].encode('utf-8'))
+            # passwd = passwd.hexdigest()
+            if passwd == value.make_json().get("password"):
+                # return "<h1>Hello World!</h1>"
+                return render_template("login.html", name=username)
+
+            # Wrong password details
+            return jsonify('Wrong Password, you can try again')
+
+    # User not found in the database
     return jsonify("User not found")
 
 

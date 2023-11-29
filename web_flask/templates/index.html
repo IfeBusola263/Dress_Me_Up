@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="stylesheet" href="/static/styles/catalog.css">
+
     <script src="/static/scripts/form.js"></script>
+    <script src="/static/scripts/catalog.js"></script>
 </head>
 
 <body>
@@ -31,7 +34,25 @@
                 <button onclick="openLoginForm()">Login</button>
             </div>
         </div>
+
+        <!-- Event catalog -->
+        <div class="catalog">
+            <label class="cat-label" for="events">Choose an Event</label>
+            <select name="events" id="events">
+                <option value="">-- Select --</option>
+                <option value="wedding">Wedding</option>
+                <option value="date">Date</option>
+                <option value="reunion">Family Reunion</option>
+                <option value="dinner">Dinner</option>
+                <option value="birthday">Birthday</option>
+            </select>
+            <div id="dressCatalogue">
+                <p id="noDressesMessage" class="no-dresses-message">No dresses available for this event.</p>
+            </div>
+        </div>
     </section>
+
+    <!-- form overlays -->
     <div class="overlay" id="overlay">
         <!-- Inside login form -->
         <div class="login-form" id="loginForm">
@@ -74,8 +95,9 @@
             </form>
             <p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
         </div>
+        
     </div>
-
+    
     <footer>
         <p>&copy; 2023 Dress. All rights reserved.</p>
     </footer>

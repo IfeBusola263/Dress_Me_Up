@@ -146,7 +146,7 @@ li a {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url('../images/hero-image.jpg');
+    background-image: url('/static/images/hero-image.jpg');
     height: auto;
     position: relative;
 }

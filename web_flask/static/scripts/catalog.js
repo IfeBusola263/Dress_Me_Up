@@ -44,7 +44,7 @@ function displayDress() {
         if (dressCatalog[selectedEvent]) {
             dressCatalog[selectedEvent].forEach(image => {
                 const img = $('<img>');
-                img.attr('src', '/images/' + image);
+                img.attr('src', '/static/images/' + image);
                 dressCatalogue.append(img);
             });
         noDressesMessage.hide(); // Hide the message when dresses are available

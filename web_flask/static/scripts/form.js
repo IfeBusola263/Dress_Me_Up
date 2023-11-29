@@ -1,11 +1,15 @@
 function openLoginForm() {
+    closeForm()
     document.getElementById("loginForm").style.display = "block";
     document.getElementById("overlay").style.display = "block";
+    console.log("login form loaded");
 }
 
 function openSignupForm() {
+    closeForm();
     document.getElementById("signupForm").style.display = "block";
     document.getElementById("overlay").style.display = "block";
+    console.log("signupForm loaded");
 }
 
 function closeForm() {
@@ -16,9 +20,10 @@ function closeForm() {
 
 function showLoginForm() {
     document.getElementById("signupForm").style.display = "none";
-    document.getElementById("loginForm").style.display = "block";
+    // document.getElementById("loginForm").style.display = "block";
+    openLoginForm();
+    console.log("login form loaded");
 }
-
 
 function isDescendant(parent, child) {
     var node = child.parentNode;

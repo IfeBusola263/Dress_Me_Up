@@ -52,7 +52,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- form overlays -->
     <div class="overlay" id="overlay">
         <!-- Inside login form -->
@@ -63,10 +63,9 @@
             <h2>Login</h2>
             <form method="POST">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
+                <input type="text" id="l-name" name="name" required>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="l-password" name="password" required>
 
                 <button type="submit">Login</button>
             </form>
@@ -84,10 +83,10 @@
                 <input type="text" id="name" name="name" required>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="s-email" name="email" required>
 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="s-password" name="password" required>
 
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required>
@@ -96,9 +95,8 @@
             </form>
             <p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
         </div>
-        
     </div>
-    
+
     <footer>
         <p>&copy; 2023 Dress. All rights reserved.</p>
     </footer>

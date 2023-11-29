@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """Creates all user route utility"""
 
-from api.v1.views import app_views
 from models.user import User
-from flask import jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template
 from models import storage
 
+app = Flask(__name__)
 
-@app_views.route('/users/sign_up',
+@app.route('/users/sign_up',
                  methods=["POST"],
                  strict_slashes=False)
 def sign_up():
@@ -25,7 +25,7 @@ def sign_up():
 
     return jsonify("Peng! You have successfully registered"), 201
 
-@app_views.route('/users/login', methods=["GET", "POST"], strict_slashes=False)
+@app.route('/users/login', methods=["GET", "POST"], strict_slashes=False)
 def log_in():
     """Defines user login utility"""
     if request.method == "GET":
@@ -48,3 +48,7 @@ def log_in():
             return render_template("login.html")
 
     return jsonify("User not found")
+
+
+if __name__ == '__main__':
+    app.run(port='5001', host='0.0.0.0', debug=True)

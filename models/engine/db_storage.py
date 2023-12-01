@@ -13,6 +13,8 @@ from models.hair_style import HairStyle
 from models.dress import Dress
 from models.makeup_style import MakeupStyle
 
+classes = {"Dress": Dress, "Event": Event,
+           "MakeupStyle": MakeupStyle, "HairStyle": HairStyle, "User": User}
 
 class DBStorage:
     """Creates a storage class using ORM and
@@ -74,3 +76,18 @@ class DBStorage:
     def close(self):
         """Closes an open session"""
         self.__session.close()
+
+    def get(self, cls, name):
+        """
+        Returns the object based on the class name and its ID, or
+        None if not found
+        """
+        if cls not in classes.values():
+            return None
+
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.name == name):
+                return value
+
+        return None

@@ -12,7 +12,8 @@
        <h2>Dress Styles</h2>
        <ol>
 	  {% for dress in dresses %}
-	  <li><a href="#" onclick="showMatchingEvents('{{ dress.name }}')">{{ dress.name }}</a></li>
+	  <!-- <li><a href="#" onclick="showMatchingEvents('{{ dress.name }}')">{{ dress.name }}</a></li> -->
+	  <li><a href="#" onclick="showMatchingEvents('{{ dress.id }}', '{{ events }}, '{{ dress.image }}')">{{ dress.name }}</a></li>
 	  {% endfor %}
         <!--<li><a href="#" onclick="showMatchingEvents('Formal Suit')">Formal Suit</a></li>
         <li><a href="#" onclick="showMatchingEvents('Business Casual')">Business Casual</a></li>

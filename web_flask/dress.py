@@ -1,5 +1,6 @@
 from models import storage
 from models.dress import Dress
+from models.event import Event
 from flask import Flask, render_template, send_from_directory, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import os
@@ -25,7 +26,9 @@ def tearDown(exception):
 def dress_display():
     """Displays all dresses of different kinds"""
     dresses = sorted(storage.all(Dress).values(), key=lambda d: d.name)
-    return render_template('dresses.html', dresses=dresses)
+    events = storage.all(Event).values()
+    events = [ event.make_json() for event in events ]
+    return render_template('dresses.html', dresses=dresses, events=events)
 
 @app.route('/re_update_dress/<name>', methods=["GET", "POST"])
 def recreate_dress(name):

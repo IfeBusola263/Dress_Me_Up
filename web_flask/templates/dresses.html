@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dress Styles and Matching Events</title>
+    <link rel="stylesheet" href="/static/styles/dress.css">
+
+    <script src="/static/scripts/dress.js"></script>
+  </head>
+  <body>
+     <div class="sidebar">
+       <h2>Dress Styles</h2>
+       <ol>
+	  {% for dress in dresses %}
+	  <li><a href="#" onclick="showMatchingEvents('{{ dress.name }}')">{{ dress.name }}</a></li>
+	  {% endfor %}
+        <!--<li><a href="#" onclick="showMatchingEvents('Formal Suit')">Formal Suit</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Business Casual')">Business Casual</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Casual Jeans and T-Shirt')">Casual Jeans and T-Shirt</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Athleisure')">Athleisure</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Bohemian')">Bohemian</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Vintage')">Vintage</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Smart Casual')">Smart Casual</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Hipster')">Hipster</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Preppy')">Preppy</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Gothic')">Gothic</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Streetwear')">Streetwear</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Sportswear')">Sportswear</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Boho-Chic')">Boho-Chic</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Classic Elegant')">Classic Elegant</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Retro')">Retro</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Casual Chic')">Casual Chic</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Punk')">Punk</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Minimalist')">Minimalist</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Tomboy')">Tomboy</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Festival Wear')">Festival Wear</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Urban')">Urban</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Surfer Style')">Surfer Style</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Romantic')">Romantic</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Casual Shorts and Polo')">Casual Shorts and Polo</a></li>
+	<li><a href="#" onclick="showMatchingEvents('Western')">Western</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Business Formal')">Business Formal</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Cocktail Attire')">Cocktail Attire</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Ethnic Traditional')">Ethnic Traditional</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Glamorous Evening Wear')">Glamorous Evening Wear</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Summer Beachwear')">Summer Beachwear</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Winter Cozy')">Winter Cozy</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Vintage Rock')">Vintage Rock</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Edgy')">Edgy</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Country')">Country</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Artistic/Quirky')">Artistic/Quirky</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Rugged Outdoor')">Rugged Outdoor</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Nautical')">Nautical</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Eclectic')">Eclectic</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Formal Evening Gown')">Formal Evening Gown</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Trendy High Fashion')">Trendy High Fashion</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Casual Street Style')">Casual Street Style</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Laid-back Lounge')">Laid-back Lounge</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Futuristic')">Futuristic</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Sci-Fi Inspired')">Sci-Fi Inspired</a></li>
+        <li><a href="#" onclick="showMatchingEvents('Uniform Style')">Uniform Style</a></li>
+	<li><a href="#" onclick="showMatchingEvents('Funky Retro')">Funky Retro</a></li>-->
+       </ol>
+     </div>
+     <div class="content">
+       <h2>Matching Events</h2>
+       <div id="matchingEvents">
+       </div>
+     </div>
+  </body>
+</html>

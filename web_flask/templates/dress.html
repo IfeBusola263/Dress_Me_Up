@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dress Styles and Matching Events</title>
+    <link rel="stylesheet" href="/static/styles/dress.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Dress Styles</h2>
+        <ol>
+            {% for dress in dresses %}
+            <li><a href="{{ url_for('recreate_dress', name=dress.name) }}">{{ dress.name }}</a></li>
+            {% endfor %}
+        </ol>
+    </div>
+    <div class="content">
+        <h2>Matching Events</h2>
+        <div id="matchingEvents">
+		<!--{% for dress in dresses %}-->
+                <img src="{{ url_for('uploaded_dress', filename=dress.image) }}" alt="{{ dress.name }}">
+		<!--{% endfor %}-->
+        </div>
+    </div>
+</body>
+</html>
+

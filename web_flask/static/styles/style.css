@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-y: auto;
 }
 
 header {
@@ -138,7 +139,7 @@ li a {
     padding: 5px 10px;
 }
 
-.hero {
+/*.hero {
     flex: 1;
     display: flex;
     align-items: center;
@@ -149,8 +150,18 @@ li a {
     background-image: url('/static/images/hero-image.jpg');
     height: auto;
     position: relative;
+}*/
+.hero {
+    background-image: url('/static/images/hero-image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative
 }
-
 .hero-search-bar {
     position: absolute;
     top: 20px;

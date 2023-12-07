@@ -3,6 +3,7 @@
    of events
 """
 import models
+from sqlalchemy.orm import relationship
 from models.parent_model import ParentModel, Base
 from sqlalchemy import Column, String, ForeignKey
 
@@ -15,6 +16,7 @@ class Event(ParentModel, Base):
         #event_id = Column(String(60), primary_key=True, nullable=False)
         name = Column(String(128), nullable=False)
         dress_id = Column(String(60), ForeignKey('dresses.id'), nullable=False)
+        dress = relationship('Dress', backref='events')
 
     else:
         dress_id = ""

@@ -38,9 +38,33 @@ function displayDress() {
     const dressCatalogue = $('#dressCatalogue');
 
     select.on('change', function () {
-        const selectedEvent = this.value;
+	// const selectedEvent = this.value;
+        // const selectedEventDressImg = $(this).data('image');
+	const selectedOption = $(this).find('option:selected');
+        const selectedEventDressImg = selectedOption.data('image');
+        const selectedEvent = selectedOption.val();
+	console.log(selectedEventDressImg);
+	console.log(selectedEvent);
+	const dressImage = selectedEventDressImg.split('/').pop();
 
-        dressCatalogue.empty();
+	$.ajax({
+	    type: 'GET',
+	    url: `http://127.0.0.1:5000/upload_dress/${dressImage}`,
+	    xhrFields: {
+	        responseType: 'blob'
+	    },
+	    success: function (data) {
+		const imageUrl = URL.createObjectURL(data);
+		dressCatalogue.empty();
+		console.log(imageUrl);
+		dressCatalogue.append(`<div><img src="${imageUrl}"/></div>`);
+	    },
+	    error: function () {
+		console.log("No Dress Image for Selected Event");
+	    }
+	});
+
+        /*dressCatalogue.empty();
         if (dressCatalog[selectedEvent]) {
             dressCatalog[selectedEvent].forEach(image => {
                 const img = $('<img>');
@@ -52,7 +76,7 @@ function displayDress() {
             dressCatalogue.empty();
             noDressesMessage.show(); // Show the message when no dresses are available
             // dressCatalogue.html('<p class="no-dresses-message">No dresses available for this event.');
-        }
+        }*/
     });
 }
 

@@ -6,6 +6,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="/static/styles/style.css">
     <link rel="stylesheet" href="/static/styles/catalog.css">
+    <link rel="stylesheet" href="/static/styles/landing.css">
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="/static/scripts/form.js"></script>
@@ -41,16 +42,78 @@
             <label class="cat-label" for="events">Choose an Event</label>
             <select name="events" id="events">
                 <option value="">-- Select --</option>
-                <option value="wedding">Wedding</option>
-                <option value="date">Date</option>
-                <option value="reunion">Family Reunion</option>
-                <option value="dinner">Dinner</option>
-                <option value="birthday">Birthday</option>
+		{% for dress in dresses %}
+		  {% for event in dress.events %}
+		    <option value="{{ event.name }}" data-image="{{ dress.image }}">{{ event.name }}</option>
+		  {% endfor %}
+		{% endfor %}
             </select>
             <div id="dressCatalogue">
                 <p id="noDressesMessage" class="no-dresses-message">No dresses available for this event.</p>
             </div>
         </div>
+    </section>
+    <section class="landing-page">
+        <div class="some1-div">
+	   <div class="feature-description">
+	    <h2>Get ready for stylish<br/>outing anytime; take our words for it</h2>
+	    <p>Do you have an outing ranging from dinner<br/>to summer jamz or just casual ocassions. FashionBot got you covered!</p>
+            <ul>
+                <li>Showcase amazing dresses</li>
+                <li>Suggestion on what to wear to wherever</li>
+		<li>Virtual dressing room for trying out dress<br/>Free!</li>
+            </ul>
+	    <h4>Try now &rarr; <button class="SignUp" onclick="openSignupForm()">Sign Up</button></h4>
+           </div>
+           <div class="feature-image">
+	      <div class="image-content"></div>
+           </div>
+	</div>	    
+        <div class="some1-div">
+           <div class="feature-image">
+	      <div class="image-content"></div>
+           </div>
+	   <div class="feature-description">
+    	    <h2>Stay Ahead with Trendy Styles</h2>
+   	    <p>Explore the latest trends in fashion and always stay ahead. FashionBot keeps you updated with the newest styles, ensuring you never miss out.</p>
+    	    <ul>
+        	<li>Discover trendy outfit ideas</li>
+        	<li>Get notified about fashion trends</li>
+        	<li>Personalized style suggestions</li>
+    	    </ul>
+    	    <h4>Get Started &rarr; <button class="SignUp" onclick="openSignupForm()">Sign Up</button></h4>
+	   </div> 
+	</div>	    
+        <div class="some1-div">
+	   <div class="feature-description">
+    	    <h2>Revolutionary Virtual Wardrobe</h2>
+    	    <p>Access your virtual wardrobe anytime, anywhere. Experiment with various dress combinations virtually and choose your perfect look hassle-free!</p>
+    	    <ul>
+        	<li>Create and organize your wardrobe</li>
+        	<li>Try-on feature for mix-and-match</li>
+        	<li>Save and share your favorite looks</li>
+    	    </ul>
+    	    <h4>Join Now &rarr; <button class="SignUp" onclick="openSignupForm()">Sign Up</button></h4>
+	   </div>
+           <div class="feature-image">
+	      <div class="image-content"></div>
+           </div>
+	</div>	    
+        <div class="some1-div">
+           <div class="feature-image4">
+	      <div class="image-content"></div>
+           </div>
+	   <div class="feature-description">
+    	    <h2>Your Personal Fashion Advisor</h2>
+   	    <p>Experience a personalized touch in your fashion choices. FashionBot analyzes your preferences and provides tailor-made recommendations just for you!</p>
+   	   <ul>
+        	<li>Customized outfit suggestions</li>
+        	<li>Seasonal style tips and guides</li>
+        	<li>Exclusive fashion advice</li>
+    	   </ul>
+    	   <h4>Get Advice &rarr; <button class="SignUp" onclick="openSignupForm()">Sign Up</button></h4>
+	   </div>
+	</div>	    
     </section>
     
     <!-- form overlays -->
@@ -78,7 +141,7 @@
                 <button class="close-btn" onclick="closeForm()">X</button>
             </div>
             <h2>Sign Up</h2>
-            <form>
+            <form action="/users/sign_up" method="POST" enctype="multipart/form-data">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -90,6 +153,8 @@
 
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required>
+		<label for="file">Profile Picture:</label>
+            	<input type="file" id="file" name="file"><br><br>
 
                 <button type="submit">Sign Up</button>
             </form>

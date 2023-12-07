@@ -1,0 +1,43 @@
+.some1-div {
+    display: flex;
+    margin-top: 10vh;
+    background-color: white;
+    min-height: 50vh;
+}
+.feature-description {
+    flex: 2;
+}
+.feature-image {
+    display: flex;
+    flex: 2;
+    align-items: center;
+    justify-content: center;
+}
+.feature-image4 {
+    display: flex;
+    flex: 2;
+    align-items: center;
+    justify-content: center;
+}
+.feature-image4 .image-content {
+    background-image: url('/static/images/dress2.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 80%; 
+    height: 80%;
+}
+.image-content {
+    background-image: url('/static/images/dress.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 80%; 
+    height: 80%;
+}
+.SignUp {
+    background-color: purple;
+    border-radius: 6px;
+    border-style: none;
+    width: 60px;
+    height: 20px;
+    color: white;
+}

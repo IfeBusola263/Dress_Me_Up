@@ -51,3 +51,14 @@ document.getElementById("signupFormLink").addEventListener("click", function (ev
     closeForm();
     openLoginForm();
 });
+
+const passwordInput = document.getElementById('s-password');
+const confirmPasswordInput = document.getElementById('confirmPassword');
+const submitButton = document.querySelector('button');
+
+submitButton.addEventListener('click', function(event) {
+  if (passwordInput.value !== confirmPasswordInput.value) {
+    event.preventDefault();
+    alert('Passwords do not match!');
+  }
+});

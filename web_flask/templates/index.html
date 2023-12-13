@@ -68,6 +68,9 @@
                 <input type="password" id="l-password" name="password" required>
 
                 <button type="submit">Login</button>
+                {% if message %}
+                <div id="login-message">{{ message }}</div>
+                {% endif %}
             </form>
             <p><a href="#">Forgot Password?</a></p>
         </div>
